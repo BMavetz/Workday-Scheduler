@@ -9,24 +9,21 @@ var PM4text = $('#4PM').children('textarea');
 var PM5text = $('#5PM').children('textarea');
 var curDay = moment().format('dddd, MMMM Do');
 var curHour = moment().format('HH');
-
+console.log(curHour);
 $("#currentDay").text(curDay);
-// var hour = 9;
-// if(hour > curHour){
-//             $('.container').children().eq(0).children('textarea').addClass('past');
-// }
+
 function timeColorCode(){
-    console.log("hello");
 var index = 0;
 for(var hour = 9; hour < 18 ; hour++){
     if(hour > curHour){
+        console.log("hi");
         $('.container').children().eq(index).children('textarea').addClass('future'); 
-    }else if(hour = curHour){
+    }else if(hour == curHour){
     $('.container').children().eq(index).children('textarea').addClass('present');
-    }//else if(hour < curHour){
-    // console.log("hello");
-    // $('.container').children().eq(index).children('textarea').addClass('future');
-    // }
+    console.log("hello");
+    }else if(hour < curHour){
+    $('.container').children().eq(index).children('textarea').addClass('past');
+    }
      index ++;
 }
 }
