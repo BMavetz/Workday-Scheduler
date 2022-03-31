@@ -9,20 +9,18 @@ var PM4text = $('#4PM').children('textarea');
 var PM5text = $('#5PM').children('textarea');
 var curDay = moment().format('dddd, MMMM Do');
 var curHour = moment().format('HH');
-console.log(curHour);
+
 $("#currentDay").text(curDay);
 
 function timeColorCode(){
 var index = 0;
 for(var hour = 9; hour < 18 ; hour++){
     if(hour > curHour){
-        console.log("hi");
         $('.container').children().eq(index).children('textarea').addClass('future'); 
     }else if(hour == curHour){
-    $('.container').children().eq(index).children('textarea').addClass('present');
-    console.log("hello");
+        $('.container').children().eq(index).children('textarea').addClass('present');
     }else if(hour < curHour){
-    $('.container').children().eq(index).children('textarea').addClass('past');
+        $('.container').children().eq(index).children('textarea').addClass('past');
     }
      index ++;
 }
