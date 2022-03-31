@@ -8,7 +8,28 @@ var PM3text = $('#3PM').children('textarea');
 var PM4text = $('#4PM').children('textarea');
 var PM5text = $('#5PM').children('textarea');
 var curDay = moment().format('dddd, MMMM Do');
+var curHour = moment().format('HH');
+
 $("#currentDay").text(curDay);
+// var hour = 9;
+// if(hour > curHour){
+//             $('.container').children().eq(0).children('textarea').addClass('past');
+// }
+function timeColorCode(){
+    console.log("hello");
+var index = 0;
+for(var hour = 9; hour < 18 ; hour++){
+    if(hour > curHour){
+        $('.container').children().eq(index).children('textarea').addClass('future'); 
+    }else if(hour = curHour){
+    $('.container').children().eq(index).children('textarea').addClass('present');
+    }//else if(hour < curHour){
+    // console.log("hello");
+    // $('.container').children().eq(index).children('textarea').addClass('future');
+    // }
+     index ++;
+}
+}
 
 function loadPage() {
     AM9text.val(localStorage.getItem("9AM"));
@@ -20,6 +41,7 @@ function loadPage() {
     PM3text.val(localStorage.getItem("3PM"));
     PM4text.val(localStorage.getItem("4PM"));
     PM5text.val(localStorage.getItem("5PM"));
+    timeColorCode();
 }
 
 $('#9AM').children('button').on('click', function () {
